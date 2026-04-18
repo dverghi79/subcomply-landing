@@ -124,12 +124,12 @@
 
     <!-- CRO: Unfair Advantage killer line -->
     <div style="display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(239,68,68,0.2);border-radius:0.25rem;padding:0.3rem 0.75rem;color:#ef4444;font-size:0.8rem;margin-bottom:1rem;font-family:'JetBrains Mono',monospace;font-weight:600;">
-      Validates insurance, certs, and licenses automatically from uploaded docs.
+      Most GCs find out about compliance issues after the fact. You'll know before.
     </div>
 
     <div style="max-width:780px;">
       <h1 style="font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.08;font-weight:700;letter-spacing:-0.025em;margin-bottom:1.5rem;color:#e8f0f8;">
-        Your sub just started work without a signed safety form. You found out from OSHA. <span style="color:#ef4444;">SubComply tracks every sub's compliance status before they step on site.</span>
+        Your sub just started work without a signed safety form. You found out from OSHA, and now the job is on hold. <span style="color:#ef4444;">SubComply tracks every sub's compliance status before they step on site.</span>
       </h1>
 
       <!-- dir-122: Scannable bullets replacing paragraph subheadline -->
@@ -149,8 +149,15 @@
       </ul>
 
       <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
-        <a href="#waitlist" class="btn-primary">Claim Your Spot, Stop Compliance Gaps</a>
-        <a href="#how-it-works" class="btn-ghost">See how it works ↓</a>
+        <a href="#waitlist" class="btn-primary">See Which Subs Are Non-Compliant Today</a>
+        <a href="#how-it-works" class="btn-ghost">See example alerts ↓</a>
+      </div>
+
+      <!-- CRO: Example alert preview -->
+      <div style="margin-top:2.5rem;max-width:560px;padding:1rem 1.25rem;border:1px solid rgba(239,68,68,0.15);border-radius:0.5rem;background:rgba(239,68,68,0.04);">
+        <p style="margin:0 0 0.35rem;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#ef4444;font-family:'JetBrains Mono',monospace;">Example SubComply Alert</p>
+        <p style="margin:0;font-size:0.9rem;color:#94a8b8;line-height:1.6;font-style:italic;">"<span style="color:#e8f0f8;font-weight:600;">ABC Framing LLC</span> — COI expired — safety form missing — job still active — GL coverage lapsed"</p>
+        <p style="margin:0.5rem 0 0;font-size:0.7rem;color:rgba(148,168,184,0.5);font-family:'JetBrains Mono',monospace;">Flagged: Today, 7:45 AM · 3 docs non-compliant</p>
       </div>
     </div>
 
@@ -278,9 +285,9 @@
     <p style="text-align:center;font-size:0.8rem;color:#64748b;margin-top:1rem;font-style:italic;">Early preview of the SubComply dashboard</p>
     
       <!-- Callout overlays (desktop only, positioned over dashboard) -->
-      <div class="hide-mobile" style="position:absolute;top:160px;right:40px;background:#ef4444;color:#070d14;font-size:0.65rem;font-weight:700;padding:0.3rem 0.6rem;border-radius:0.25rem;font-family:'Space Grotesk',sans-serif;white-space:nowrap;box-shadow:0 2px 8px rgba(239,68,68,0.3);">Expiring COI flagged</div>
-      <div class="hide-mobile" style="position:absolute;top:240px;left:220px;background:#ef4444;color:#070d14;font-size:0.65rem;font-weight:700;padding:0.3rem 0.6rem;border-radius:0.25rem;font-family:'Space Grotesk',sans-serif;white-space:nowrap;box-shadow:0 2px 8px rgba(239,68,68,0.3);">Auto-reminder sent to sub</div>
-      <div class="hide-mobile" style="position:absolute;bottom:80px;right:60px;background:#ef4444;color:#070d14;font-size:0.65rem;font-weight:700;padding:0.3rem 0.6rem;border-radius:0.25rem;font-family:'Space Grotesk',sans-serif;white-space:nowrap;box-shadow:0 2px 8px rgba(239,68,68,0.3);">Compliance score: 94%</div>
+      <div class="hide-mobile" style="position:absolute;top:160px;right:40px;background:#ef4444;color:#070d14;font-size:0.65rem;font-weight:700;padding:0.3rem 0.6rem;border-radius:0.25rem;font-family:'Space Grotesk',sans-serif;white-space:nowrap;box-shadow:0 2px 8px rgba(239,68,68,0.3);">Non-compliant subs flagged instantly</div>
+      <div class="hide-mobile" style="position:absolute;top:240px;left:220px;background:#ef4444;color:#070d14;font-size:0.65rem;font-weight:700;padding:0.3rem 0.6rem;border-radius:0.25rem;font-family:'Space Grotesk',sans-serif;white-space:nowrap;box-shadow:0 2px 8px rgba(239,68,68,0.3);">Expired documents detected</div>
+      <div class="hide-mobile" style="position:absolute;bottom:80px;right:60px;background:#ef4444;color:#070d14;font-size:0.65rem;font-weight:700;padding:0.3rem 0.6rem;border-radius:0.25rem;font-family:'Space Grotesk',sans-serif;white-space:nowrap;box-shadow:0 2px 8px rgba(239,68,68,0.3);">Audit-ready compliance status</div>
     </div>
   </section>
 
@@ -289,7 +296,7 @@
     <div style="max-width:1120px;margin:0 auto;">
       <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#ef4444;font-family:'JetBrains Mono',monospace;margin-bottom:1rem;">The problem</p>
       <h2 style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;letter-spacing:-0.015em;max-width:660px;margin-bottom:1.25rem;color:#e8f0f8;">
-        OSHA showed up Tuesday. Your sub's safety cert expired in March. Nobody on your team knew.
+        OSHA showed up Tuesday. Your sub's safety cert expired in March. Nobody on your team knew. And you only find out when it's too late.
       </h2>
 
       <!-- dir-122 improvement #5: Aggressive pain subparagraph -->
@@ -331,7 +338,7 @@
     <div style="max-width:1120px;margin:0 auto;">
       <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#ef4444;font-family:'JetBrains Mono',monospace;margin-bottom:1rem;">How it works</p>
       <h2 style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;letter-spacing:-0.015em;max-width:600px;margin-bottom:4rem;color:#e8f0f8;">
-        Add your subs. SubComply handles the rest.
+        Add your subs once. Know every sub's status before they step on site.
       </h2>
 
       <div class="grid-auto" style="gap:1.5rem;">
@@ -344,7 +351,7 @@
             </div>
             <span class="mono" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#94a8b8;">Step 1</span>
           </div>
-          <h3 style="font-size:1.05rem;font-weight:600;color:#e8f0f8;margin-bottom:0.75rem;">See every sub's compliance status in one place, updated in real-time</h3>
+          <h3 style="font-size:1.05rem;font-weight:600;color:#e8f0f8;margin-bottom:0.75rem;">See every sub's compliance status instantly</h3>
           <p style="font-size:0.95rem;color:#94a8b8;line-height:1.65;">Upload a list or add subs manually. SubComply automatically requests COIs, W-9s, and license docs from each sub via email. No manual follow-ups needed.</p>
         </div>
         <div class="card" style="padding:2rem;">
@@ -356,7 +363,7 @@
             </div>
             <span class="mono" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#94a8b8;">Step 2</span>
           </div>
-          <h3 style="font-size:1.05rem;font-weight:600;color:#e8f0f8;margin-bottom:0.75rem;">Know about expiring certs and missing documents before the sub shows up</h3>
+          <h3 style="font-size:1.05rem;font-weight:600;color:#e8f0f8;margin-bottom:0.75rem;">Never get surprised by expired documents again</h3>
           <p style="font-size:0.95rem;color:#94a8b8;line-height:1.65;">SubComply's AI reads COIs, W-9s, and licenses. It flags missing info, gaps in coverage, and expiration dates. Everything is verified and stored securely.</p>
         </div>
         <div class="card" style="padding:2rem;">
@@ -368,9 +375,15 @@
             </div>
             <span class="mono" style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#94a8b8;">Step 3</span>
           </div>
-          <h3 style="font-size:1.05rem;font-weight:600;color:#e8f0f8;margin-bottom:0.75rem;">Prove full sub compliance to any inspector, on demand, in 30 seconds</h3>
+          <h3 style="font-size:1.05rem;font-weight:600;color:#e8f0f8;margin-bottom:0.75rem;">Walk into any inspection with zero stress</h3>
           <p style="font-size:0.95rem;color:#94a8b8;line-height:1.65;">SubComply sends automatic reminders to subs 30 days before expiry. You get a dashboard alert when docs are updated. Stay ahead of deadlines, never chase paperwork again.</p>
         </div>
+      </div>
+
+      <!-- CRO: Emotional benefit lines -->
+      <div style="margin-top:3rem;max-width:660px;display:flex;flex-direction:column;gap:1rem;">
+        <p style="font-size:1.05rem;color:#94a8b8;line-height:1.7;margin:0;"><span style="color:#ef4444;font-weight:600;">Stop being the one blamed when something's missing.</span> Let SubComply catch it first.</p>
+        <p style="font-size:1.05rem;color:#94a8b8;line-height:1.7;margin:0;"><span style="color:#ef4444;font-weight:600;">Never scramble paperwork again.</span> Every doc, every sub, always current.</p>
       </div>
     </div>
   </section>
@@ -423,9 +436,9 @@
           <!-- dir-122: "What you'll get" value prop block -->
           <p style="font-size:0.875rem;font-weight:600;color:#e8f0f8;margin-bottom:0.75rem;">What you'll get:</p>
           <div style="display:flex;flex-direction:column;gap:0.75rem;font-size:0.875rem;margin-bottom:1.5rem;">
-            <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(232,240,248,0.75);margin:0;"><span style="width:5px;height:5px;border-radius:50%;background:#ef4444;flex-shrink:0;"></span>Automated sub compliance tracking with expiration alerts</p>
-            <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(232,240,248,0.75);margin:0;"><span style="width:5px;height:5px;border-radius:50%;background:#ef4444;flex-shrink:0;"></span>Early access to the subcontractor compliance platform</p>
-            <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(232,240,248,0.75);margin:0;"><span style="width:5px;height:5px;border-radius:50%;background:#ef4444;flex-shrink:0;"></span>Priority onboarding and direct access to the founder</p>
+            <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(232,240,248,0.75);margin:0;"><span style="width:5px;height:5px;border-radius:50%;background:#ef4444;flex-shrink:0;"></span>See non-compliant subs instantly</p>
+            <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(232,240,248,0.75);margin:0;"><span style="width:5px;height:5px;border-radius:50%;background:#ef4444;flex-shrink:0;"></span>Get alerts before documents expire</p>
+            <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(232,240,248,0.75);margin:0;"><span style="width:5px;height:5px;border-radius:50%;background:#ef4444;flex-shrink:0;"></span>Be ready for inspections anytime</p>
           </div>
           <p style="font-size:0.8rem;color:#ef4444;font-weight:600;">First 50 contractors get lifetime founding access and direct founder onboarding.</p>
         </div>
@@ -475,8 +488,9 @@
             
             </div>
             <button type="submit" id="submit-btn" class="btn-primary" style="width:100%;height:3rem;font-size:1rem;">
-              Claim Your Spot, Stop Compliance Gaps
+              See Which Subs Are Non-Compliant Today
             </button>
+            <p style="font-size:0.8rem;color:#ef4444;font-weight:600;text-align:center;margin:0;">Once spots are filled, onboarding closes before launch.</p>
             <p style="font-size:0.75rem;color:rgba(180,210,230,0.65);text-align:center;margin:0;">By signing up you accept our <a href="/privacy.html" style="color:#ef4444;text-decoration:underline;">Privacy Policy</a> and analytics cookies. No spam — we will only contact you about SubComply.</p>
 
             <!-- Inline "Book a call with the founder" -->
@@ -539,8 +553,18 @@
       return utm;
     }
 
+    var formStep = 1;
+    function showStep2() {
+      if (formStep === 1) {
+        formStep = 2;
+        document.getElementById('form-step-2').style.display = 'flex';
+        document.getElementById('submit-btn').textContent = 'See Which Subs Are Non-Compliant Today';
+      }
+    }
+
     async function handleSubmit(e) {
       e.preventDefault();
+      if (formStep === 1) { showStep2(); return; }
       // Grant consent on submit — user is voluntarily engaging, enable full tracking
       grantConsent();
       var btn = document.getElementById('submit-btn');
@@ -598,8 +622,7 @@
       try { if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: 'AW-18071371531/z6DhCLq9-JccEIv-jKlD', value: 1.0, currency: 'USD' }); } catch(ex) {}
 
       document.getElementById('signup-form').style.display = 'none';
-      showStep2();
-          document.getElementById('success-message').style.display = 'block';
+      document.getElementById('success-message').style.display = 'block';
     }
 
     var CALENDLY_URL = 'https://calendly.com/leanaistudio/30min';
