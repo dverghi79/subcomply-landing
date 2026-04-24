@@ -239,37 +239,51 @@
     .founder-booking-badge:hover{ transform:translateY(-2px); box-shadow:0 12px 40px rgba(0,0,0,0.5); border-color:rgba(239,68,68,0.2); color:#fff; }
     .founder-booking-badge svg{ width:18px; height:18px; flex-shrink:0; }
 
-    /* ── Aha Moment Section ── */
-    @keyframes pulse-aha { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.7; } }
-    .aha-section { padding: 4rem 0; }
-    .aha-container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
-    .aha-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    @media (max-width: 768px) { .aha-grid { grid-template-columns: 1fr; gap: 2rem; } }
-    .aha-left { display: flex; flex-direction: column; gap: 1.5rem; }
-    .aha-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; }
-    .aha-card-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem; }
-    .aha-card-value { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
-    .aha-card-desc { font-size: 0.85rem; color: var(--text-secondary); }
-    .aha-right { display: flex; flex-direction: column; gap: 2rem; justify-content: center; }
-    .aha-animation-container { background: linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.02) 50%, rgba(8,8,10,1) 100%); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; min-height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    .aha-badge { display: inline-block; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .aha-badge.at-risk { background: rgba(239,68,68,0.15); color: var(--red); }
-    .aha-badge.verifying { background: rgba(251,191,36,0.15); color: #fbbf24; }
-    .aha-badge.compliant { background: rgba(34,197,94,0.15); color: var(--green); }
-    .aha-caption { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem; font-style: italic; line-height: 1.6; }
-    .aha-timer { font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    /* ── Aha Morphing Animation ── */
+    .aha-wrap{max-width:900px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,0.5);background:#111113;}
+    .aha-chrome{background:#161618;padding:0.6rem 1rem;display:flex;align-items:center;gap:0.75rem;border-bottom:1px solid var(--border);}
+    .aha-dots span{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px;}
+    .aha-status{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:8px;transition:all 0.6s ease;}
+    .aha-status.pain{background:rgba(239,68,68,0.12);color:#ef4444;}
+    .aha-status.syncing{background:rgba(168,85,247,0.12);color:#a855f7;}
+    .aha-status.done{background:rgba(34,197,94,0.12);color:#22c55e;}
+    .aha-body{padding:1.5rem 1.5rem 1rem;position:relative;}
+    .aha-caption{text-align:center;padding:0.75rem 0 1rem;font-size:1.1rem;font-weight:700;transition:all 0.5s ease;min-height:2.5rem;}
+    .aha-form{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;transition:all 0.8s ease;}
+    .aha-field{padding:0.6rem 0.75rem;border-radius:8px;font-size:0.75rem;font-family:'JetBrains Mono',monospace;transition:all 0.8s ease;position:relative;overflow:hidden;}
+    .aha-field-label{font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;transition:color 0.6s ease;}
+    .aha-field-value{font-size:0.8rem;font-weight:500;transition:color 0.6s ease;}
+    .aha-field.full{grid-column:1/-1;}
+    .aha-form.state-pain .aha-field{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);}
+    .aha-form.state-pain .aha-field-label{color:rgba(239,68,68,0.6);}
+    .aha-form.state-pain .aha-field-value{color:var(--text-muted);}
+    .aha-form.state-pain .aha-field.has-error{border-color:#ef4444;box-shadow:0 0 0 1px rgba(239,68,68,0.3);}
+    .aha-form.state-pain .aha-field.has-error .aha-field-value{color:#ef4444;text-decoration:line-through;}
+    .aha-form.state-syncing .aha-field{background:rgba(168,85,247,0.05);border:1px solid rgba(168,85,247,0.15);}
+    .aha-form.state-syncing .aha-field-label{color:rgba(168,85,247,0.6);}
+    .aha-form.state-syncing .aha-field-value{color:#a855f7;}
+    .aha-form.state-done .aha-field{background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.18);}
+    .aha-form.state-done .aha-field-label{color:rgba(34,197,94,0.6);}
+    .aha-form.state-done .aha-field-value{color:var(--text-primary);}
+    .aha-form.state-done .aha-field.has-error{border-color:rgba(34,197,94,0.18);box-shadow:none;}
+    .aha-form.state-done .aha-field.has-error .aha-field-value{color:var(--text-primary);text-decoration:none;}
+    .aha-scan{height:2px;background:transparent;margin:0.75rem 0 0;border-radius:2px;overflow:hidden;position:relative;}
+    .aha-scan-bar{position:absolute;top:0;left:0;width:0;height:100%;border-radius:2px;transition:width 1.2s ease-in-out;}
+    .aha-timer-strip{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:0.75rem;padding:0.5rem 0;font-family:'JetBrains Mono',monospace;font-size:0.75rem;transition:all 0.5s ease;min-height:2rem;}
+    @media (max-width:600px){.aha-form{grid-template-columns:1fr;}}
 
-    /* ── Logical Closer Section ── */
-    .closer-section { padding: 4rem 0; background: linear-gradient(135deg, rgba(239,68,68,0.06) 0%, rgba(239,68,68,0.02) 50%, rgba(8,8,10,1) 100%); border-top: 1px solid rgba(239,68,68,0.1); border-bottom: 1px solid rgba(239,68,68,0.1); }
-    .closer-container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
-    .closer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    @media (max-width: 768px) { .closer-grid { grid-template-columns: 1fr; gap: 2rem; } }
-    .closer-column { display: flex; flex-direction: column; gap: 1.5rem; }
-    .closer-row { display: flex; gap: 1.5rem; align-items: flex-start; }
-    .closer-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
-    .closer-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
-    .closer-items { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 0.5rem; }
-    .closer-items li { margin-left: 1.25rem; }
+    /* ── Logical Closer ── */
+    .closer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:900px;margin:0 auto;}
+    .closer-card{border-radius:16px;padding:2rem 1.75rem;}
+    .closer-card-old{background:rgba(239,68,68,0.03);border:1px solid rgba(239,68,68,0.12);}
+    .closer-card-new{background:rgba(34,197,94,0.03);border:1px solid rgba(34,197,94,0.15);}
+    .closer-label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;}
+    .closer-item{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1.15rem;}
+    .closer-item:last-child{margin-bottom:0;}
+    .closer-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+    .closer-icon-x{background:rgba(239,68,68,0.1);}
+    .closer-icon-check{background:rgba(34,197,94,0.1);}
+    @media (max-width:768px){.closer-grid{grid-template-columns:1fr;gap:1rem;}}
   </style>
 </head>
 <body>
@@ -480,65 +494,78 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       AHA MOMENT — Real-time Compliance Example
+       AHA MOMENT — Morphing Compliance Animation
        ═══════════════════════════════════════════ -->
-  <section class="aha-section">
-    <div class="aha-container">
-      <p class="section-label reveal">Aha Moment</p>
+  <section id="aha-section" style="padding:3rem 0 5rem;">
+    <div class="container">
+      <p class="section-label reveal">Watch the transformation</p>
       <h2 class="section-title reveal" style="margin-bottom:2.5rem;">
-        87 subs in one dashboard. <span class="gradient-text">Complete visibility.</span>
+        Hours chasing paperwork → <span class="gradient-text">full compliance in seconds.</span>
       </h2>
 
-      <div class="aha-grid">
-        <!-- Left: Compliance cards -->
-        <div class="aha-left">
-          <!-- GL Card -->
-          <div class="aha-card reveal reveal-delay-1">
-            <div class="aha-card-label">General Liability</div>
-            <div class="aha-card-value">GL: $2M/$4M · Expires 11/2026</div>
-            <div class="aha-card-desc">auto-verified</div>
+      <div class="aha-wrap reveal-scale">
+        <!-- Browser chrome -->
+        <div class="aha-chrome">
+          <div class="aha-dots">
+            <span style="background:#ff5f57;"></span>
+            <span style="background:#ffbd2e;"></span>
+            <span style="background:#28c840;"></span>
           </div>
-          <!-- WC Card -->
-          <div class="aha-card reveal reveal-delay-2">
-            <div class="aha-card-label">Workers Compensation</div>
-            <div class="aha-card-value">WC: $1M · Experience Mod 0.87</div>
-            <div class="aha-card-desc">verified today</div>
-          </div>
-          <!-- License Card -->
-          <div class="aha-card reveal reveal-delay-3">
-            <div class="aha-card-label">Trade License</div>
-            <div class="aha-card-value">Electrical C-10 #847231 · Active</div>
-            <div class="aha-card-desc">valid thru 03/2027</div>
-          </div>
-          <!-- OSHA Card -->
-          <div class="aha-card reveal reveal-delay-1" style="transition-delay:0.4s;">
-            <div class="aha-card-label">OSHA Training</div>
-            <div class="aha-card-value">OSHA 30 · Fall Protection · Silica</div>
-            <div class="aha-card-desc">all current</div>
-          </div>
+          <span style="font-size:0.6rem;color:var(--text-muted);font-family:'JetBrains Mono',monospace;">SubComply — Subcontractor Compliance Dashboard</span>
+          <div id="aha-status" class="aha-status pain">At Risk</div>
         </div>
 
-        <!-- Right: Animation sequence -->
-        <div class="aha-right">
-          <!-- Pain state -->
-          <div class="aha-animation-container reveal" style="opacity:1;animation:none;">
-            <div class="aha-badge at-risk">AT RISK</div>
-            <p class="aha-caption">Sub's on your jobsite. Their insurance expired last month.</p>
-            <div class="aha-timer">⏱ Last compliance check: onboarding day</div>
+        <div class="aha-body">
+          <!-- Caption overlay -->
+          <div id="aha-caption" class="aha-caption" style="color:#ef4444;">
+            Checking filing cabinet... emailing subs... calling for updates...
           </div>
 
-          <!-- Syncing state (hidden initially) -->
-          <div class="aha-animation-container reveal" style="opacity:0.5;animation:pulse-aha 1.5s ease-in-out infinite;pointer-events:none;">
-            <div class="aha-badge verifying">VERIFYING</div>
-            <p class="aha-caption">SubComply verifying all subs across all active jobs…</p>
-            <div class="aha-timer">⟳ Verifying COIs · licenses · OSHA certs · WC…</div>
+          <!-- The morphing form -->
+          <div id="aha-form" class="aha-form state-pain">
+            <div class="aha-field has-error">
+              <div class="aha-field-label">Rivera Plumbing — COI</div>
+              <div class="aha-field-value" data-pain="Expired 03/2026 (!)" data-done="GL $2M/$4M · Current thru 03/2027">Expired 03/2026 (!)</div>
+            </div>
+            <div class="aha-field has-error">
+              <div class="aha-field-label">Torres Electric — W-9</div>
+              <div class="aha-field-value" data-pain="Missing (emailed 3x...)" data-done="W-9 on file · verified">Missing (emailed 3x...)</div>
+            </div>
+            <div class="aha-field">
+              <div class="aha-field-label">Apex HVAC — License</div>
+              <div class="aha-field-value" data-pain="(need to check state DB)" data-done="C-20 #847231 · Active thru 12/2026">(need to check state DB)</div>
+            </div>
+            <div class="aha-field">
+              <div class="aha-field-label">Workers Comp</div>
+              <div class="aha-field-value" data-pain="(which subs have WC?)" data-done="WC $1M · Exp Mod 0.87 · current">(which subs have WC?)</div>
+            </div>
+            <div class="aha-field">
+              <div class="aha-field-label">OSHA Certs</div>
+              <div class="aha-field-value" data-pain="(binder in the truck...)" data-done="OSHA 30 · Fall Protection · current">(binder in the truck...)</div>
+            </div>
+            <div class="aha-field">
+              <div class="aha-field-label">Additional Insured</div>
+              <div class="aha-field-value" data-pain="(need endorsement copy)" data-done="Your company listed · CG 20 10">(need endorsement copy)</div>
+            </div>
+            <div class="aha-field full has-error">
+              <div class="aha-field-label">Job Site Compliance</div>
+              <div class="aha-field-value" data-pain="3 subs on site with unknown coverage status" data-done="23 subs · 87% compliant · 4 flagged · audit-ready">3 subs on site with unknown coverage status</div>
+            </div>
+            <div class="aha-field full">
+              <div class="aha-field-label">Expiration Alerts</div>
+              <div class="aha-field-value" data-pain="No tracking — find out when inspector shows up" data-done="Auto-alerts at 30, 14, 7 days · 2 COIs expiring this month">No tracking — find out when inspector shows up</div>
+            </div>
           </div>
 
-          <!-- Done state (hidden initially) -->
-          <div class="aha-animation-container reveal" style="opacity:0.3;animation:none;pointer-events:none;">
-            <div class="aha-badge compliant">COMPLIANT</div>
-            <p class="aha-caption">87 subs verified. Zero compliance gaps. Audit-ready.</p>
-            <div class="aha-timer">✓ 87 subs · 94.3% compliant · 5 items auto-flagged</div>
+          <!-- Scanning bar -->
+          <div class="aha-scan">
+            <div id="aha-scan-bar" class="aha-scan-bar"></div>
+          </div>
+
+          <!-- Timer strip -->
+          <div id="aha-timer" class="aha-timer-strip" style="color:#ef4444;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span id="aha-timer-text">~3 hours/week chasing paperwork</span>
           </div>
         </div>
       </div>
@@ -745,42 +772,110 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       LOGICAL CLOSER — Old Way vs New Way
+       LOGICAL CLOSER — Old Way vs SubComply
        ═══════════════════════════════════════════ -->
-  <section class="closer-section">
-    <div class="closer-container">
-      <p class="section-label reveal">Old way vs new way</p>
-      <h2 class="section-title reveal" style="margin-bottom:3rem;">
-        Stop chasing paperwork. <span class="gradient-text">Start building.</span>
+  <section style="padding:4rem 0 5rem;">
+    <div class="container">
+      <p class="section-label reveal">Why switch</p>
+      <h2 class="section-title reveal" style="margin-bottom:2.5rem;">
+        The old way vs. <span class="gradient-text">the SubComply way.</span>
       </h2>
 
       <div class="closer-grid">
-        <!-- Old Way -->
-        <div class="closer-column reveal reveal-delay-1">
-          <div style="padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
-            <div class="closer-label">❌ The Old Way</div>
-            <div class="closer-title">Manual compliance chaos</div>
+        <!-- OLD WAY -->
+        <div class="closer-card closer-card-old reveal reveal-delay-1">
+          <div class="closer-label" style="color:#ef4444;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            The Old Way
           </div>
-          <ul class="closer-items" style="list-style:none;padding:0;">
-            <li>Collect COIs at onboarding and never check again</li>
-            <li>Chase subs for updated insurance via email and phone</li>
-            <li>Discover expired coverage only during an audit or after an incident</li>
-            <li>No visibility into which subs are compliant across which jobs</li>
-          </ul>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-x">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">COIs collected once, never checked again</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">You get the cert at onboarding and file it. It expires 6 months later. Nobody knows.</p>
+            </div>
+          </div>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-x">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Hours chasing subs for documents</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">Emailing, calling, texting — for one W-9 from one sub. Multiply by 23.</p>
+            </div>
+          </div>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-x">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Expired coverage found after an incident</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">The inspector shows up, a sub's COI is lapsed — your job stops. You're holding the liability.</p>
+            </div>
+          </div>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-x">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">No per-job compliance visibility</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">Which subs are cleared for which jobs? Nobody knows without digging through a filing cabinet.</p>
+            </div>
+          </div>
         </div>
 
-        <!-- New Way -->
-        <div class="closer-column reveal reveal-delay-2">
-          <div style="padding-bottom:1.5rem;border-bottom:1px solid var(--accent);border-bottom-width:2px;">
-            <div class="closer-label">✓ SubComply</div>
-            <div class="closer-title">Continuous compliance</div>
+        <!-- SUBCOMPLY WAY -->
+        <div class="closer-card closer-card-new reveal reveal-delay-2">
+          <div class="closer-label" style="color:#22c55e;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            With SubComply
           </div>
-          <ul class="closer-items" style="list-style:none;padding:0;">
-            <li>Continuous COI monitoring with auto-alerts before expiration</li>
-            <li>Subs upload docs to their own portal — zero chasing</li>
-            <li>Real-time compliance dashboard for every sub on every job</li>
-            <li>One-click audit reports with full document trail</li>
-          </ul>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Continuous COI monitoring</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">Auto-alerts at 30, 14, and 7 days before expiration. You never miss a lapse.</p>
+            </div>
+          </div>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Subs upload to their own portal</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">Send a link, they upload. SubComply parses dates and coverage automatically. Zero chasing.</p>
+            </div>
+          </div>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Real-time compliance per job</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">Every sub, every job, every doc — one dashboard. Know who's cleared to work today.</p>
+            </div>
+          </div>
+
+          <div class="closer-item">
+            <div class="closer-icon closer-icon-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p style="margin:0;font-size:0.9rem;font-weight:600;color:var(--text-primary);">One-click audit reports</p>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--text-muted);">Full document trail for every sub. Inspector shows up? You're ready in seconds.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1117,6 +1212,94 @@
       }
       return false;
     }
+
+    /* ── DKI (Dynamic Keyword Insertion) ── */
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var headline = params.get('headline');
+      if (headline) {
+        var h1 = document.querySelector('h1');
+        if (h1) {
+          h1.setAttribute('data-default-headline', h1.innerHTML);
+          h1.textContent = decodeURIComponent(headline);
+        }
+      }
+    })();
+
+    /* ── AHA MORPHING ANIMATION ── */
+    (function() {
+      var form = document.getElementById('aha-form');
+      var status = document.getElementById('aha-status');
+      var caption = document.getElementById('aha-caption');
+      var scanBar = document.getElementById('aha-scan-bar');
+      var timer = document.getElementById('aha-timer');
+      var timerText = document.getElementById('aha-timer-text');
+      if (!form || !status) return;
+      var fields = form.querySelectorAll('.aha-field-value');
+      var section = document.getElementById('aha-section');
+      var started = false;
+
+      function runCycle() {
+        // Phase 1: PAIN state
+        form.className = 'aha-form state-pain';
+        status.className = 'aha-status pain';
+        status.textContent = 'At Risk';
+        caption.style.color = '#ef4444';
+        caption.textContent = 'Checking filing cabinet... emailing subs... calling for updates...';
+        scanBar.style.width = '0';
+        scanBar.style.background = 'transparent';
+        timer.style.color = '#ef4444';
+        timerText.textContent = '~3 hours/week chasing paperwork';
+        fields.forEach(function(f) { f.textContent = f.dataset.pain; });
+
+        // Phase 2: SYNCING (after 3s)
+        setTimeout(function() {
+          form.className = 'aha-form state-syncing';
+          status.className = 'aha-status syncing';
+          status.textContent = 'Verifying...';
+          caption.style.color = '#a855f7';
+          caption.textContent = 'SubComply verifying COIs, licenses, W-9s across all jobs...';
+          scanBar.style.background = 'linear-gradient(90deg, #a855f7, #8b5cf6)';
+          scanBar.style.width = '100%';
+          timer.style.color = '#a855f7';
+          timerText.textContent = 'Verifying 23 subcontractors...';
+        }, 3000);
+
+        // Phase 3: Fields fill one by one (after 4.5s)
+        setTimeout(function() {
+          fields.forEach(function(f, i) {
+            setTimeout(function() {
+              f.textContent = f.dataset.done;
+            }, i * 150);
+          });
+        }, 4500);
+
+        // Phase 4: DONE (after 6s)
+        setTimeout(function() {
+          form.className = 'aha-form state-done';
+          status.className = 'aha-status done';
+          status.textContent = 'Compliant';
+          caption.style.color = '#22c55e';
+          caption.textContent = '23 subs verified. 87% compliant. Audit-ready.';
+          scanBar.style.background = 'linear-gradient(90deg, #22c55e, #16a34a)';
+          timer.style.color = '#22c55e';
+          timerText.textContent = 'All docs current — zero chasing';
+        }, 6000);
+
+        // Loop: restart after 10s total
+        setTimeout(function() { runCycle(); }, 10000);
+      }
+
+      // Start on scroll into view
+      var ahaObs = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !started) {
+          started = true;
+          runCycle();
+          ahaObs.unobserve(section);
+        }
+      }, { threshold: 0.3 });
+      ahaObs.observe(section);
+    })();
   </script>
 
   <!-- Floating "Book a Call" Badge -->
