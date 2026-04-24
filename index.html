@@ -238,6 +238,38 @@
     .founder-booking-badge{ position:fixed; bottom:24px; right:24px; z-index:9999; display:flex; align-items:center; gap:8px; padding:12px 20px; background:rgba(17,17,19,0.9); color:#fff; border:1px solid var(--border); border-radius:14px; cursor:pointer; font-family:inherit; font-size:14px; font-weight:600; box-shadow:0 8px 32px rgba(0,0,0,0.4); transition:all 0.3s; text-decoration:none; backdrop-filter:blur(12px); }
     .founder-booking-badge:hover{ transform:translateY(-2px); box-shadow:0 12px 40px rgba(0,0,0,0.5); border-color:rgba(239,68,68,0.2); color:#fff; }
     .founder-booking-badge svg{ width:18px; height:18px; flex-shrink:0; }
+
+    /* ── Aha Moment Section ── */
+    @keyframes pulse-aha { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.7; } }
+    .aha-section { padding: 4rem 0; }
+    .aha-container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    .aha-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 768px) { .aha-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .aha-left { display: flex; flex-direction: column; gap: 1.5rem; }
+    .aha-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; }
+    .aha-card-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem; }
+    .aha-card-value { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
+    .aha-card-desc { font-size: 0.85rem; color: var(--text-secondary); }
+    .aha-right { display: flex; flex-direction: column; gap: 2rem; justify-content: center; }
+    .aha-animation-container { background: linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.02) 50%, rgba(8,8,10,1) 100%); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; text-align: center; position: relative; overflow: hidden; min-height: 280px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .aha-badge { display: inline-block; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .aha-badge.at-risk { background: rgba(239,68,68,0.15); color: var(--red); }
+    .aha-badge.verifying { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .aha-badge.compliant { background: rgba(34,197,94,0.15); color: var(--green); }
+    .aha-caption { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem; font-style: italic; line-height: 1.6; }
+    .aha-timer { font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+    /* ── Logical Closer Section ── */
+    .closer-section { padding: 4rem 0; background: linear-gradient(135deg, rgba(239,68,68,0.06) 0%, rgba(239,68,68,0.02) 50%, rgba(8,8,10,1) 100%); border-top: 1px solid rgba(239,68,68,0.1); border-bottom: 1px solid rgba(239,68,68,0.1); }
+    .closer-container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    .closer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media (max-width: 768px) { .closer-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .closer-column { display: flex; flex-direction: column; gap: 1.5rem; }
+    .closer-row { display: flex; gap: 1.5rem; align-items: flex-start; }
+    .closer-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .closer-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+    .closer-items { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; display: flex; flex-direction: column; gap: 0.5rem; }
+    .closer-items li { margin-left: 1.25rem; }
   </style>
 </head>
 <body>
@@ -448,6 +480,72 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       AHA MOMENT — Real-time Compliance Example
+       ═══════════════════════════════════════════ -->
+  <section class="aha-section">
+    <div class="aha-container">
+      <p class="section-label reveal">Aha Moment</p>
+      <h2 class="section-title reveal" style="margin-bottom:2.5rem;">
+        87 subs in one dashboard. <span class="gradient-text">Complete visibility.</span>
+      </h2>
+
+      <div class="aha-grid">
+        <!-- Left: Compliance cards -->
+        <div class="aha-left">
+          <!-- GL Card -->
+          <div class="aha-card reveal reveal-delay-1">
+            <div class="aha-card-label">General Liability</div>
+            <div class="aha-card-value">GL: $2M/$4M · Expires 11/2026</div>
+            <div class="aha-card-desc">auto-verified</div>
+          </div>
+          <!-- WC Card -->
+          <div class="aha-card reveal reveal-delay-2">
+            <div class="aha-card-label">Workers Compensation</div>
+            <div class="aha-card-value">WC: $1M · Experience Mod 0.87</div>
+            <div class="aha-card-desc">verified today</div>
+          </div>
+          <!-- License Card -->
+          <div class="aha-card reveal reveal-delay-3">
+            <div class="aha-card-label">Trade License</div>
+            <div class="aha-card-value">Electrical C-10 #847231 · Active</div>
+            <div class="aha-card-desc">valid thru 03/2027</div>
+          </div>
+          <!-- OSHA Card -->
+          <div class="aha-card reveal reveal-delay-1" style="transition-delay:0.4s;">
+            <div class="aha-card-label">OSHA Training</div>
+            <div class="aha-card-value">OSHA 30 · Fall Protection · Silica</div>
+            <div class="aha-card-desc">all current</div>
+          </div>
+        </div>
+
+        <!-- Right: Animation sequence -->
+        <div class="aha-right">
+          <!-- Pain state -->
+          <div class="aha-animation-container reveal" style="opacity:1;animation:none;">
+            <div class="aha-badge at-risk">AT RISK</div>
+            <p class="aha-caption">Sub's on your jobsite. Their insurance expired last month.</p>
+            <div class="aha-timer">⏱ Last compliance check: onboarding day</div>
+          </div>
+
+          <!-- Syncing state (hidden initially) -->
+          <div class="aha-animation-container reveal" style="opacity:0.5;animation:pulse-aha 1.5s ease-in-out infinite;pointer-events:none;">
+            <div class="aha-badge verifying">VERIFYING</div>
+            <p class="aha-caption">SubComply verifying all subs across all active jobs…</p>
+            <div class="aha-timer">⟳ Verifying COIs · licenses · OSHA certs · WC…</div>
+          </div>
+
+          <!-- Done state (hidden initially) -->
+          <div class="aha-animation-container reveal" style="opacity:0.3;animation:none;pointer-events:none;">
+            <div class="aha-badge compliant">COMPLIANT</div>
+            <p class="aha-caption">87 subs verified. Zero compliance gaps. Audit-ready.</p>
+            <div class="aha-timer">✓ 87 subs · 94.3% compliant · 5 items auto-flagged</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        PRODUCT PREVIEW / DASHBOARD MOCKUP
        ═══════════════════════════════════════════ -->
   <section style="padding:3rem 0 5rem;">
@@ -641,6 +739,48 @@
           </div>
           <h3 style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:0.5rem;">Get Alerted Before Expiration</h3>
           <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.6;">Automatic reminders at 30, 14, and 7 days. If a sub doesn't respond, they're flagged as non-compliant for all active jobs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LOGICAL CLOSER — Old Way vs New Way
+       ═══════════════════════════════════════════ -->
+  <section class="closer-section">
+    <div class="closer-container">
+      <p class="section-label reveal">Old way vs new way</p>
+      <h2 class="section-title reveal" style="margin-bottom:3rem;">
+        Stop chasing paperwork. <span class="gradient-text">Start building.</span>
+      </h2>
+
+      <div class="closer-grid">
+        <!-- Old Way -->
+        <div class="closer-column reveal reveal-delay-1">
+          <div style="padding-bottom:1.5rem;border-bottom:1px solid var(--border);">
+            <div class="closer-label">❌ The Old Way</div>
+            <div class="closer-title">Manual compliance chaos</div>
+          </div>
+          <ul class="closer-items" style="list-style:none;padding:0;">
+            <li>Collect COIs at onboarding and never check again</li>
+            <li>Chase subs for updated insurance via email and phone</li>
+            <li>Discover expired coverage only during an audit or after an incident</li>
+            <li>No visibility into which subs are compliant across which jobs</li>
+          </ul>
+        </div>
+
+        <!-- New Way -->
+        <div class="closer-column reveal reveal-delay-2">
+          <div style="padding-bottom:1.5rem;border-bottom:1px solid var(--accent);border-bottom-width:2px;">
+            <div class="closer-label">✓ SubComply</div>
+            <div class="closer-title">Continuous compliance</div>
+          </div>
+          <ul class="closer-items" style="list-style:none;padding:0;">
+            <li>Continuous COI monitoring with auto-alerts before expiration</li>
+            <li>Subs upload docs to their own portal — zero chasing</li>
+            <li>Real-time compliance dashboard for every sub on every job</li>
+            <li>One-click audit reports with full document trail</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -928,6 +1068,34 @@
       document.getElementById('signup-form').style.display = 'none';
       document.getElementById('success-message').style.display = 'block';
     }
+
+    /* ── Aha Moment Animation (IntersectionObserver + state transitions) ── */
+    document.addEventListener('DOMContentLoaded', function() {
+      var ahaContainers = document.querySelectorAll('.aha-animation-container');
+      if ('IntersectionObserver' in window && ahaContainers.length >= 3) {
+        var ahaObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var idx = Array.from(ahaContainers).indexOf(entry.target);
+              entry.target.style.opacity = '1';
+              entry.target.style.pointerEvents = 'auto';
+
+              if (idx === 0) {
+                setTimeout(function() { ahaContainers[1].style.opacity = '0.5'; ahaContainers[1].style.animation = 'pulse-aha 1.5s ease-in-out infinite'; }, 3000);
+              }
+              if (idx === 1) {
+                setTimeout(function() { ahaContainers[2].style.opacity = '0.3'; ahaContainers[2].style.animation = 'none'; }, 4500);
+              }
+              if (idx === 2) {
+                setTimeout(function() { ahaContainers[0].style.opacity = '0.2'; ahaContainers[1].style.opacity = '0.2'; }, 10000);
+              }
+              ahaObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        ahaContainers.forEach(function(el) { ahaObserver.observe(el); });
+      }
+    });
 
     var CALENDLY_URL='https://calendly.com/leanaistudio/30min';
     function openCalendly(e) {
