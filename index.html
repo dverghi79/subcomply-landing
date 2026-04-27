@@ -1248,19 +1248,6 @@
       try { fetch('/api/slack-notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: '*[' + displayName + ']* Calendly booking confirmed!\n*Email:* ' + invEmail + '\n*Name:* ' + (invName || 'n/a') + '\n*Source:* LP founder badge' }) }); } catch(ex) {}
     });
 
-    /* ── DKI (Dynamic Keyword Insertion) ── */
-    (function() {
-      var params = new URLSearchParams(window.location.search);
-      var headline = params.get('headline');
-      if (headline) {
-        var h1 = document.querySelector('h1');
-        if (h1) {
-          h1.setAttribute('data-default-headline', h1.innerHTML);
-          h1.textContent = decodeURIComponent(headline);
-        }
-      }
-    })();
-
     /* ── AHA MORPHING ANIMATION ── */
     (function() {
       var form = document.getElementById('aha-form');
